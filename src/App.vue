@@ -2,15 +2,13 @@
 // import { ref } from 'vue';
 import Button from './components/ui/button/Button.vue';
 import { Facebook, AtSign, Linkedin, BookUser } from 'lucide-vue-next';
-
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   // CarouselNext,
   // CarouselPrevious,
-}
-from '/xampp/htdocs/MyPortfolio/MyPortfolio/src/components/ui/carousel'
+} from './components/ui/carousel';
 </script>
 
 <template class="bg-gray-200">
@@ -46,7 +44,7 @@ from '/xampp/htdocs/MyPortfolio/MyPortfolio/src/components/ui/carousel'
       </div>
 
       <div class="h-screen px-8 place-content-center">
-        <img src="../assets/terence.jpg" alt="No image" class="rounded-md h-124 object-cover border-2 border-black" />
+        <img src="" alt="No image" class="rounded-md h-124 object-cover border-2 border-black" />
       </div>
     </section>
 
@@ -60,15 +58,9 @@ from '/xampp/htdocs/MyPortfolio/MyPortfolio/src/components/ui/carousel'
         </h2>
       </header>
 
-      <div class="h-76 border-2 border-black rounded-md">
-
-      </div>
-      <div class="h-76 border-2 border-black rounded-md">
-
-      </div>
-      <div class="h-76 border-2 border-black rounded-md">
-
-      </div>
+      <div class="h-76 border-2 border-black rounded-md"></div>
+      <div class="h-76 border-2 border-black rounded-md"></div>
+      <div class="h-76 border-2 border-black rounded-md"></div>
 
       <header class="col-span-3 ">
         <h1 class="flex flex-row items-center justify-center text-3xl font-bold">
@@ -79,15 +71,9 @@ from '/xampp/htdocs/MyPortfolio/MyPortfolio/src/components/ui/carousel'
         </h2>
       </header>
 
-      <div class="h-42 border-2 border-black rounded-md">
-
-      </div>
-      <div class="h-42 border-2 border-black rounded-md">
-
-      </div>
-      <div class="h-42 border-2 border-black rounded-md">
-
-      </div>
+      <div class="h-42 border-2 border-black rounded-md"></div>
+      <div class="h-42 border-2 border-black rounded-md"></div>
+      <div class="h-42 border-2 border-black rounded-md"></div>
 
       <h2 class="col-span-3 flex flex-row text-center items-center justify-center text-xl">
         Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam eos, 
