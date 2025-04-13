@@ -22,7 +22,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 }
-from '/xampp/htdocs/MyPortfolio/MyPortfolio/src/components/ui/carousel'
+from '../src/components/ui/carousel'
 
 // Static image data
 const images = [
