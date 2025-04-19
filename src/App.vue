@@ -33,31 +33,31 @@ const projects = [
     id: 1,
     title: "Web-Based Organizing System in Marilao, Bulacan (Capstone Project)",
     description: "A comprehensive web-based system designed to streamline organizational processes in Marilao, Bulacan. Features include user management, document tracking, and reporting capabilities.",
-    icon: '../public/pictures/Blessed.jpg',
+    icon: '/pictures/Blessed.jpg',
     images: [
-      { src: '../public/pictures/blessedfirstpage.png', title: 'Home Page', description: 'Main dashboard with key features' },
-      { src: '../public/pictures/blessedsecondpage.png', title: 'User Management', description: 'User interface for managing accounts' },
-      { src: '../public/pictures/blessedthirdpage.png', title: 'Document Tracking', description: 'System for tracking important documents' },
-      { src: '../public/pictures/blessedfourthpage.png', title: 'Reports', description: 'Analytics and reporting dashboard' },
-      { src: '../public/pictures/capstonegroup.png', title: 'Captstone Group & Mr. Mark Adriano', description: '' }
+      { src: '/pictures/blessedfirstpage.png', title: 'Home Page', description: 'Main dashboard with key features' },
+      { src: '/pictures/blessedsecondpage.png', title: 'User Management', description: 'User interface for managing accounts' },
+      { src: '/pictures/blessedthirdpage.png', title: 'Document Tracking', description: 'System for tracking important documents' },
+      { src: '/pictures/blessedfourthpage.png', title: 'Reports', description: 'Analytics and reporting dashboard' },
+      { src: '/pictures/capstonegroup.png', title: 'Captstone Group & Mr. Mark Adriano', description: '' }
     ]
   },
   {
     id: 2,
     title: "To be updated",
     description: "Description for project 2",
-    icon: '../public/pictures/AITBD.png',
+    icon: '/pictures/AITBD.png',
     images: [
-      { src: '../public/pictures/AITBD.png', title: 'Feature 1', description: 'Description for feature 1' },
+      { src: '/pictures/AITBD.png', title: 'Feature 1', description: 'Description for feature 1' },
     ]
   },
   {
     id: 3,
     title: "To be updated",
     description: "Description for project 3",
-    icon: '../public/pictures/AITBD.png',
+    icon: '/pictures/AITBD.png',
     images: [
-      { src: '../public/pictures/AITBD.png', title: 'Feature 1', description: 'Description for feature 1' },
+      { src: '/pictures/AITBD.png', title: 'Feature 1', description: 'Description for feature 1' },
     ]
   }
 ];
@@ -161,7 +161,7 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
 
         <div class="flex items-center justify-center px-4 md:px-8">
           <Fadein direction="right">
-            <img src="../public/pictures/AIFormal.png" alt="No image" class="rounded-md w-full md:w-auto h-auto max-h-[70vh] object-contain" />
+            <img src="/pictures/AIFormal.png" alt="No image" class="rounded-md w-full md:w-auto h-auto max-h-[70vh] object-contain" />
           </Fadein>
         </div>
       </section>
