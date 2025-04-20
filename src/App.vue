@@ -39,12 +39,12 @@ const projects = [
       { src: '/pictures/blessedsecondpage.png', title: 'User Management', description: 'User interface for managing accounts' },
       { src: '/pictures/blessedthirdpage.png', title: 'Document Tracking', description: 'System for tracking important documents' },
       { src: '/pictures/blessedfourthpage.png', title: 'Reports', description: 'Analytics and reporting dashboard' },
-      { src: '/pictures/capstonegroup.png', title: 'Captstone Group & Mr. Mark Adriano', description: '' }
+      { src: '/pictures/capstonegroup.png', title: 'Capstone Group & Mr. Mark Adriano', description: '' }
     ]
   },
   {
     id: 2,
-    title: "To be updated",
+    title: "To be developed",
     description: "Description for project 2",
     icon: '/pictures/AITBD.png',
     images: [
@@ -53,7 +53,7 @@ const projects = [
   },
   {
     id: 3,
-    title: "To be updated",
+    title: "To be developed",
     description: "Description for project 3",
     icon: '/pictures/AITBD.png',
     images: [
@@ -116,11 +116,35 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
   <div class="min-h-screen bg-[#1a1a1a]">
     <header class="fixed top-0 z-50 w-full h-16 bg-white shadow-md">
       <nav class="container flex items-center justify-between h-full px-4 mx-auto md:px-8 lg:px-12">
-        <div class="text-lg font-bold text-gray-800 md:text-xl lg:text-2xl">Portfolio</div>
-        <ul class="flex space-x-2 md:space-x-4 lg:space-x-6">
-          <li><Button variant="link" class="text-sm font-semibold text-gray-700 duration-300 cursor-pointer hover:text-blue-600 md:text-md lg:text-lg" @click="scrollToSection('home')">Home</Button></li>
-          <li><Button variant="link" class="text-sm font-semibold text-gray-700 duration-300 cursor-pointer hover:text-blue-600 md:text-md lg:text-lg" @click="scrollToSection('services')">Services</Button></li>
-          <li><Button variant="link" class="text-sm font-semibold text-gray-700 duration-300 cursor-pointer hover:text-blue-600 md:text-md lg:text-lg" @click="scrollToSection('contact')">Contact</Button></li>
+        <div class="text-lg font-bold text-gray-800 whitespace-nowrap md:text-xl lg:text-2xl">Portfolio</div>
+        <ul class="flex items-center space-x-2 md:space-x-4 lg:space-x-6">
+          <li>
+            <Button 
+              variant="link" 
+              class="text-sm font-semibold text-gray-700 duration-300 cursor-pointer whitespace-nowrap hover:text-blue-600 md:text-md lg:text-lg" 
+              @click="scrollToSection('home')"
+            >
+              Home
+            </Button>
+          </li>
+          <li>
+            <Button 
+              variant="link" 
+              class="text-sm font-semibold text-gray-700 duration-300 cursor-pointer whitespace-nowrap hover:text-blue-600 md:text-md lg:text-lg" 
+              @click="scrollToSection('services')"
+            >
+              Services
+            </Button>
+          </li>
+          <li>
+            <Button 
+              variant="link" 
+              class="text-sm font-semibold text-gray-700 duration-300 cursor-pointer whitespace-nowrap hover:text-blue-600 md:text-md lg:text-lg" 
+              @click="scrollToSection('contact')"
+            >
+              Contact
+            </Button>
+          </li>
         </ul>
       </nav>
     </header>
@@ -259,13 +283,17 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
           :delay="index * 200"
         >
           <Card 
-            class="flex flex-row items-center h-auto p-4 transition-transform duration-150 bg-gray-800 border-2 border-gray-700 rounded-md cursor-pointer md:p-6 hover:border-blue-500 hover:scale-102"
+            class="p-4 transition-transform duration-150 bg-gray-800 border-2 border-gray-700 rounded-md cursor-pointer hover:border-blue-500 hover:scale-102 md:p-6"
             @click="selectProject(project)"
           >
-            <Icon class="flex items-center">
-              <img :src="project.icon" :alt="project.title" class="object-cover rounded-md size-16 md:size-20 lg:size-24" />
-              <span class="ml-4 text-lg font-semibold text-white md:text-xl lg:text-xl">{{ project.title }}</span>
-            </Icon>
+            <div class="flex flex-col items-center md:flex-row md:items-center md:space-x-4">
+              <img 
+                :src="project.icon" 
+                :alt="project.title" 
+                class="object-cover rounded-md size-20 md:size-16 lg:size-24" 
+              />
+              <h3 class="mt-3 text-base font-semibold text-center text-white md:mt-0 md:text-left md:text-lg lg:text-xl">{{ project.title }}</h3>
+            </div>
           </Card>
         </Fadein>
 
@@ -278,12 +306,12 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
         <div class="col-span-1 mt-12 md:col-span-3">
           <Fadein direction="left">
             <Carousel
-              class="relative w-full max-w-3xl mx-auto"
+              class="relative w-full max-w-3xl px-6 mx-auto"
               @init-api="(val) => emblaMainApi = val"
             >
               <CarouselContent>
                 <CarouselItem v-for="(image, index) in selectedProject.images" :key="index">
-                  <div class="p-1">
+                  <div class="p-0">
                     <Card class="bg-gray-800 border-gray-700">
                       <CardContent class="flex flex-col items-center justify-center p-4 md:p-6">
                         <img 
@@ -298,14 +326,14 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
                   </div>
                 </CarouselItem>
               </CarouselContent>
-              <CarouselPrevious class="text-white duration-300 bg-gray-800 border-gray-700 left-2 hover:bg-gray-700" />
-              <CarouselNext class="text-white duration-300 bg-gray-800 border-gray-700 right-2 hover:bg-gray-700" />
+              <CarouselPrevious class="absolute text-white duration-300 bg-gray-800 border-gray-700 -left-12 hover:bg-gray-700" />
+              <CarouselNext class="absolute text-white duration-300 bg-gray-800 border-gray-700 -right-12 hover:bg-gray-700" />
             </Carousel>
           </Fadein>
 
           <Fadein direction="up" class="mt-4">
             <Carousel
-              class="relative w-full max-w-3xl mx-auto"
+              class="relative w-full max-w-3xl px-6 mx-auto"
               @init-api="(val) => emblaThumbnailApi = val"
             >
               <CarouselContent class="flex gap-1 ml-0">
@@ -315,7 +343,7 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
                   class="pl-0 cursor-pointer basis-1/4" 
                   @click="onThumbClick(index)"
                 >
-                  <div class="p-1" :class="index === selectedIndex ? 'ring-2 ring-blue-500' : 'opacity-50'">
+                  <div class="p-0" :class="index === selectedIndex ? '' : 'opacity-50'">
                     <Card class="bg-gray-800 border-gray-700">
                       <CardContent class="flex items-center justify-center p-2 aspect-square">
                         <img 
@@ -334,33 +362,33 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
       </section>
     </main>
 
-    <div id="contact" class="w-full px-4 py-8 bg-white md:py-10 lg:py-12 md:px-8 lg:px-12 mt-14">
-      <h1 class="mb-8 text-2xl font-bold text-center md:text-3xl lg:text-3xl">Contact Info.</h1>
+    <div id="contact" class="w-full px-4 py-8 bg-gray-800 md:py-10 lg:py-12 md:px-8 lg:px-12 mt-14">
+      <h1 class="mb-8 text-2xl font-bold text-center text-white md:text-3xl lg:text-3xl">Contact Info.</h1>
 
       <div class="grid max-w-3xl grid-cols-1 gap-4 mx-auto md:grid-cols-2 md:gap-6 lg:gap-8">
-        <Card class="flex items-center p-4 duration-300 bg-gray-800 rounded md:p-5 lg:p-6 hover:bg-gray-700">
-          <Mail class="w-5 h-5 text-white md:w-6 md:h-6 lg:w-7 lg:h-7" />
-          <span class="ml-4 text-base font-semibold text-white md:text-lg lg:text-xl">terencealaban@gmail.com</span>
+        <Card class="flex items-center p-4 duration-300 bg-white rounded md:p-5 lg:p-6 hover:bg-gray-100">
+          <Mail class="w-5 h-5 text-gray-800 md:w-6 md:h-6 lg:w-7 lg:h-7" />
+          <span class="text-base font-semibold text-gray-800 md:text-lg lg:text-xl">terencealaban@gmail.com</span>
         </Card>
 
-        <Card class="flex items-center p-4 duration-300 bg-gray-800 rounded md:p-5 lg:p-6 hover:bg-gray-700">
-          <Facebook class="w-5 h-5 text-white md:w-6 md:h-6 lg:w-7 lg:h-7" />
-          <span class="ml-4 text-base font-semibold text-white md:text-lg lg:text-xl">Terence Alaban</span>
+        <Card class="flex items-center p-4 duration-300 bg-white rounded md:p-5 lg:p-6 hover:bg-gray-100">
+          <Facebook class="w-5 h-5 text-gray-800 md:w-6 md:h-6 lg:w-7 lg:h-7" />
+          <span class="text-base font-semibold text-gray-800 md:text-lg lg:text-xl">Terence Alaban</span>
         </Card>
 
-        <Card class="flex items-center p-4 duration-300 bg-gray-800 rounded md:p-5 lg:p-6 hover:bg-gray-700">
-          <Phone class="w-5 h-5 text-white md:w-6 md:h-6 lg:w-7 lg:h-7" />
-          <span class="ml-4 text-base font-semibold text-white md:text-lg lg:text-xl">+63 9493796181</span>
+        <Card class="flex items-center p-4 duration-300 bg-white rounded md:p-5 lg:p-6 hover:bg-gray-100">
+          <Phone class="w-5 h-5 text-gray-800 md:w-6 md:h-6 lg:w-7 lg:h-7" />
+          <span class="text-base font-semibold text-gray-800 md:text-lg lg:text-xl">+63 9493796181</span>
         </Card>
 
-        <Card class="flex items-center p-4 duration-300 bg-gray-800 rounded md:p-5 lg:p-6 hover:bg-gray-700">
-          <Jobstreet class="w-5 h-5 text-white md:w-6 md:h-6 lg:w-7 lg:h-7" />
-          <span class="ml-4 text-base font-semibold text-white md:text-lg lg:text-xl">Terence Roi Alaban</span>
+        <Card class="flex items-center p-4 duration-300 bg-white rounded md:p-5 lg:p-6 hover:bg-gray-100">
+          <Jobstreet class="w-5 h-5 text-gray-800 md:w-6 md:h-6 lg:w-7 lg:h-7" />
+          <span class="text-base font-semibold text-gray-800 md:text-lg lg:text-xl">Terence Roi Alaban</span>
         </Card>
       </div>
     </div>
 
-    <footer class="w-full py-4 md:py-5 lg:py-6">
+    <footer class="w-full py-4 bg-[#1a1a1a] md:py-5 lg:py-6">
       <h1 class="mb-4 text-base font-bold text-center text-white md:text-lg lg:text-xl">© Terence Alaban 2025 | All right reversed</h1>
     </footer>
   </div>
