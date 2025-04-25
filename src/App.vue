@@ -223,7 +223,7 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
             <Icon class="flex flex-row items-center mb-4 text-white justify-self-center">
               <Globe :stroke-width="1" class="size-10 md:size-12 lg:size-14"/> <span class="ml-2 text-lg font-semibold md:text-xl lg:text-xl">Front-End Development</span>
             </Icon>
-            <div class="h-[200px] overflow-y-auto pr-2 space-y-4 scrollbar-hide hover:scrollbar-default">
+            <div class="h-[200px] overflow-y-auto pr-2 space-y-4" style="scrollbar-width: none; height: 75%;">
               <section class="flex items-center px-3 py-2 space-x-4 duration-300 bg-white rounded-sm shadow-md hover:bg-gray-100">
                 <Vue class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">Vue.js</p>
               </section>
@@ -378,7 +378,7 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
 
         <Card class="flex items-center p-4 duration-300 bg-white rounded md:p-5 lg:p-6 hover:bg-gray-100">
           <Phone class="w-5 h-5 text-gray-800 md:w-6 md:h-6 lg:w-7 lg:h-7" />
-          <span class="text-base font-semibold text-gray-800 md:text-lg lg:text-xl">+63 9493796181</span>
+          <span class="text-base font-semibold text-gray-800 md:text-lg lg:text-xl">+63 915 813 7053</span>
         </Card>
 
         <Card class="flex items-center p-4 duration-300 bg-white rounded md:p-5 lg:p-6 hover:bg-gray-100">
