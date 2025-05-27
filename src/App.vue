@@ -205,7 +205,7 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
 
         <div class="flex items-center justify-center px-4 md:px-8">
           <Fadein direction="right">
-            <img src="/pictures/AIFormal.png" alt="No image" class="rounded-md w-full md:w-auto h-auto max-h-[70vh] object-contain" />
+            <img src="/pictures/MYPROFILEGHIBLI.png" alt="No image" class="rounded-md w-full md:w-auto h-auto max-h-[70vh] object-contain" />
           </Fadein>
         </div>
       </section>
