@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, nextTick } from 'vue';
 import Button from './components/ui/button/Button.vue';
 import { Card, CardContent } from '../src/components/ui/card';
 import { watchOnce } from '@vueuse/core';
-import { Facebook, Mail, Phone, Blocks, Globe, Server, Figma } from 'lucide-vue-next';
+import { Facebook, Mail, Phone, Blocks, Globe, Server, Figma, Linkedin } from 'lucide-vue-next';
 import TailwindLogo from '../src/Icons/tailwind.vue'
+import ReactLogo from '../src/Icons/react.vue'
+import MongoLogo from '../src/Icons/mongo.vue'
 import Bootstrap from './Icons/bootstrap.vue';
 import Canva from "../src/Icons/canva.vue"
 import HTML from "../src/Icons/html.vue"
@@ -15,7 +17,6 @@ import TS from "../src/Icons/typescript.vue"
 import PHP from "../src/Icons/php.vue"
 import Laravel from "./Icons/laravel.vue"
 import GITHUB from "./Icons/github.vue"
-import Jobstreet from "./Icons/jobstreet.vue"
 import type { CarouselApi } from '../src/components/ui/carousel'
 import Fadein from './Fadein.vue'
 import {
@@ -44,11 +45,26 @@ const projects = [
   },
   {
     id: 2,
-    title: "To be developed",
-    description: "Description for project 2",
-    icon: '/pictures/AITBD.png',
+    title: "Special Order System For Graduating Students (SHS) in DEPED Calabarzon Region IV-A",
+    description: " Created a Special Order System for Senior High Graduating students in the" +
+        " Philippines for easier workflows across stages and faster processing of application.",
+    icon: '/pictures/deped/DepedLogo.png',
     images: [
-      { src: '/pictures/AITBD.png', title: 'Feature 1', description: 'Description for feature 1' },
+      { src: '/pictures/deped/defaultlogin.png', title: 'Login Page', description: 'Login Page for School & School Division Office' },
+      { src: '/pictures/deped/qadlogin.png', title: 'Login Page (QAD)', description: 'Login Page for QAD (Quality Assurance Division)' },
+      { src: '/pictures/deped/dashboardqad.png', title: 'Dashboard', description: 'Overall Status and Process of Special Orders' },
+      { src: '/pictures/deped/schoolaccount.png', title: 'School Account Management', description: 'Page where QAD can manage their profiles and credentials.' },
+      { src: '/pictures/deped/generatereport.png', title: 'Generate Reports', description: 'Tool to generate printable and downloadable reports of student data and special order requests.' },
+      { src: '/pictures/deped/addschool.png', title: 'Add School', description: 'Interface for QAD to add new schools to the system database.' },
+      { src: '/pictures/deped/validatingschool.png', title: 'Validate School Records', description: 'Feature for verifying the legitimacy and details of registered schools.' },
+      { src: '/pictures/deped/transaction.png', title: 'Transaction Management', description: 'List and management panel for special order requests and processing workflows.' },
+      { src: '/pictures/deped/moreinfotransaction.png', title: 'Transaction Details', description: 'Expanded view showing detailed information about each special order transaction.' },
+      { src: '/pictures/deped/announcementqad.png', title: 'QAD Announcements', description: 'Dashboard for publishing system-wide announcements from QAD.' },
+      { src: '/pictures/deped/addannouncementqad.png', title: 'Add Announcement', description: 'Form to create and publish announcements for schools and division offices.' },
+      { src: '/pictures/deped/curriculumqad.png', title: 'Curriculum Settings', description: 'Manage and update curriculum-related information in the system.' },
+      { src: '/pictures/deped/templateqad.png', title: 'Document Templates', description: 'Library of document templates used for generating official special orders.' },
+      { src: '/pictures/deped/activitylogs.png', title: 'Activity Logs', description: 'Logs of user actions and system activities for audit and security purposes.' },
+      { src: '/pictures/deped/accountsettings.png', title: 'Account Settings', description: 'User profile and account configuration options for QAD or School users.' },
     ]
   },
   {
@@ -62,23 +78,27 @@ const projects = [
   }
 ];
 
-// Carousel state
 const selectedProject = ref(projects[0]);
 const emblaMainApi = ref<CarouselApi>()
 const emblaThumbnailApi = ref<CarouselApi>()
 const selectedIndex = ref(0)
 
-// Function to handle project selection
 const selectProject = (project: typeof projects[0]) => {
   selectedProject.value = project;
   selectedIndex.value = 0;
-  if (emblaMainApi.value) {
-    emblaMainApi.value.scrollTo(0);
-  }
-  if (emblaThumbnailApi.value) {
-    emblaThumbnailApi.value.scrollTo(0);
-  }
+
+  nextTick(() => {
+    if (emblaMainApi.value) {
+      emblaMainApi.value.reInit()
+      emblaMainApi.value.scrollTo(0)
+    }
+    if (emblaThumbnailApi.value) {
+      emblaThumbnailApi.value.reInit()
+      emblaThumbnailApi.value.scrollTo(0)
+    }
+  })
 };
+
 
 function onSelect() {
   if (!emblaMainApi.value || !emblaThumbnailApi.value)
@@ -155,7 +175,7 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
           <Fadein direction="left">
             <article class="space-y-4">
               <h1 class="mb-6 text-3xl font-bold text-white underline md:text-4xl lg:text-4xl underline-offset-16">Terence Alaban</h1>
-              <h2 class="text-xl font-semibold text-gray-300 md:text-2xl lg:text-2xl">UI/UX Designer & Front-End Developer</h2>
+              <h2 class="text-xl font-semibold text-gray-300 md:text-2xl lg:text-2xl">UI/UX Designer & Full Stack Developer</h2>
               <p class="text-base text-gray-400 md:text-lg lg:text-lg">
                 Hi! I am a web developer with a desire to learn and grow in the field of web development.
                 My main goal is to create a website that is not only functional but also aesthetically pleasing. 
@@ -167,8 +187,8 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
               <a href="https://www.facebook.com/Terence.rrrrrr/" target="_blank" rel="noopener noreferrer" class="transition-transform duration-150 hover:scale-110">
                 <Facebook :stroke-width="0" fill="white" class="p-1 text-white bg-gray-800 border-2 border-gray-700 rounded-md size-12 md:size-14 lg:size-16 hover:bg-gray-900"/>
               </a>
-              <a href="https://ph.jobstreet.com/profile/terenceroi-alaban-2cmmgXZxGN" target="_blank" rel="noopener noreferrer" class="transition-transform duration-150 hover:scale-110">
-                <Jobstreet :stroke-width="0" fill="white" class="p-1 text-white bg-gray-800 border-2 border-gray-700 rounded-md size-12 md:size-14 lg:size-16 hover:bg-gray-900"/>
+              <a href="https://www.linkedin.com/in/terence-alaban-110b69361/" target="_blank" rel="noopener noreferrer" class="transition-transform duration-150 hover:scale-110">
+                <Linkedin :stroke-width="0" fill="white" class="p-1 text-white bg-gray-800 border-2 border-gray-700 rounded-md size-12 md:size-14 lg:size-16 hover:bg-gray-900"/>
               </a>
               <label class="border-gray-700 rounded-md border-r-3"></label>
               <a href="mailto:terencealaban@gmail.com" class="transition-transform duration-150 hover:scale-110">
@@ -228,6 +248,9 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
                 <Vue class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">Vue.js</p>
               </section>
               <section class="flex items-center px-3 py-2 space-x-4 duration-300 bg-white rounded-sm shadow-md hover:bg-gray-100">
+                <ReactLogo class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">React.js</p>
+              </section>
+              <section class="flex items-center px-3 py-2 space-x-4 duration-300 bg-white rounded-sm shadow-md hover:bg-gray-100">
                 <TailwindLogo class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">Tailwind</p>
               </section>
               <section class="flex items-center px-3 py-2 space-x-4 duration-300 bg-white rounded-sm shadow-md hover:bg-gray-100">
@@ -254,12 +277,15 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
             <Icon class="flex flex-row items-center mb-4 text-white justify-self-center">
               <Server :stroke-width="1" class="size-10 md:size-12 lg:size-14"/> <span class="ml-2 text-lg font-semibold md:text-xl lg:text-xl">Back-End Development</span>
             </Icon>
-            <div class="h-[200px] overflow-y-auto pr-2 space-y-4 scrollbar-hide hover:scrollbar-default">
+            <div class="h-[200px] overflow-y-auto pr-2 space-y-4" style="scrollbar-width: none; height: 75%;">
               <section class="flex items-center px-3 py-2 space-x-4 duration-300 bg-white rounded-sm shadow-md hover:bg-gray-100">
                 <PHP class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">PHP</p>
               </section>
               <section class="flex items-center px-3 py-2 space-x-4 duration-300 bg-white rounded-sm shadow-md hover:bg-gray-100">
                 <Laravel class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">Laravel</p>
+              </section>
+              <section class="flex items-center px-3 py-2 space-x-4 duration-300 bg-white rounded-sm shadow-md hover:bg-gray-100">
+                <MongoLogo class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">MongoDB</p>
               </section>
             </div>
           </div>
@@ -317,7 +343,7 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
                         <img 
                           :src="image.src" 
                           :alt="image.title"
-                          class="object-cover w-full h-48 rounded-md md:h-56 lg:h-64"
+                          class="object-contain w-full h-96 md:h-[30rem] lg:h-[32rem]"
                         />
                         <h3 class="mt-4 text-lg font-semibold text-white md:text-xl lg:text-xl">{{ image.title }}</h3>
                         <p class="mt-2 text-sm text-gray-400 md:text-base lg:text-base">{{ image.description }}</p>
@@ -382,7 +408,7 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
         </Card>
 
         <Card class="flex items-center p-4 duration-300 bg-white rounded md:p-5 lg:p-6 hover:bg-gray-100">
-          <Jobstreet class="w-5 h-5 text-gray-800 md:w-6 md:h-6 lg:w-7 lg:h-7" />
+          <Linkedin class="w-5 h-5 text-gray-800 md:w-6 md:h-6 lg:w-7 lg:h-7" />
           <span class="text-base font-semibold text-gray-800 md:text-lg lg:text-xl">Terence Roi Alaban</span>
         </Card>
       </div>
