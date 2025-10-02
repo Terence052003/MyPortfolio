@@ -14,8 +14,8 @@ import CSS from "../src/Icons/css.vue"
 import Vue from './Icons/vue.vue';
 import JS from "../src/Icons/javascript.vue"
 import TS from "../src/Icons/typescript.vue"
-import PHP from "../src/Icons/php.vue"
-import Laravel from "./Icons/laravel.vue"
+import PHP from "../src/Icons/node.vue"
+import Laravel from "./Icons/firebase.vue"
 import GITHUB from "./Icons/github.vue"
 import type { CarouselApi } from '../src/components/ui/carousel'
 import Fadein from './Fadein.vue'
@@ -279,10 +279,10 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
             </Icon>
             <div class="h-[200px] overflow-y-auto pr-2 space-y-4" style="scrollbar-width: none; height: 75%;">
               <section class="flex items-center px-3 py-2 space-x-4 duration-300 bg-white rounded-sm shadow-md hover:bg-gray-100">
-                <PHP class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">PHP</p>
+                <PHP class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">NodeJS</p>
               </section>
               <section class="flex items-center px-3 py-2 space-x-4 duration-300 bg-white rounded-sm shadow-md hover:bg-gray-100">
-                <Laravel class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">Laravel</p>
+                <Laravel class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">Firebase</p>
               </section>
               <section class="flex items-center px-3 py-2 space-x-4 duration-300 bg-white rounded-sm shadow-md hover:bg-gray-100">
                 <MongoLogo class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">MongoDB</p>
@@ -389,7 +389,7 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
     </main>
 
     <div id="contact" class="w-full px-4 py-8 bg-gray-800 md:py-10 lg:py-12 md:px-8 lg:px-12 mt-14">
-      <h1 class="mb-8 text-2xl font-bold text-center text-white md:text-3xl lg:text-3xl">Contact Info.</h1>
+      <h1 class="mb-8 text-2xl font-bold text-center text-white md:text-3xl lg:text-3xl">Let's Talk</h1>
 
       <div class="grid max-w-3xl grid-cols-1 gap-4 mx-auto md:grid-cols-2 md:gap-6 lg:gap-8">
         <Card class="flex items-center p-4 duration-300 bg-white rounded md:p-5 lg:p-6 hover:bg-gray-100">
@@ -404,7 +404,7 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
 
         <Card class="flex items-center p-4 duration-300 bg-white rounded md:p-5 lg:p-6 hover:bg-gray-100">
           <Phone class="w-5 h-5 text-gray-800 md:w-6 md:h-6 lg:w-7 lg:h-7" />
-          <span class="text-base font-semibold text-gray-800 md:text-lg lg:text-xl">+63 915 813 7053</span>
+          <span class="text-base font-semibold text-gray-800 md:text-lg lg:text-xl">+63 992-235-6682</span>
         </Card>
 
         <Card class="flex items-center p-4 duration-300 bg-white rounded md:p-5 lg:p-6 hover:bg-gray-100">
