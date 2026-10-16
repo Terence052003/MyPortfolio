@@ -6,9 +6,7 @@ import { watchOnce } from '@vueuse/core';
 import { Facebook, Mail, Phone, Blocks, Globe, Server, Figma, Linkedin } from 'lucide-vue-next';
 import TailwindLogo from '../src/Icons/tailwind.vue'
 import ReactLogo from '../src/Icons/react.vue'
-import MongoLogo from '../src/Icons/mongo.vue'
 import Bootstrap from './Icons/bootstrap.vue';
-import Canva from "../src/Icons/canva.vue"
 import HTML from "../src/Icons/html.vue"
 import CSS from "../src/Icons/css.vue"
 import Vue from './Icons/vue.vue';
@@ -17,6 +15,10 @@ import TS from "../src/Icons/typescript.vue"
 import PHP from "../src/Icons/node.vue"
 import Laravel from "./Icons/firebase.vue"
 import GITHUB from "./Icons/github.vue"
+import Nextjs from './Icons/nextjs.vue'
+import Payload from './Icons/payload.vue'
+import Postgres from './Icons/postgres.vue'
+import Stitch from './Icons/stitch.vue'
 import type { CarouselApi } from '../src/components/ui/carousel'
 import Fadein from './Fadein.vue'
 import {
@@ -32,15 +34,23 @@ from '../src/components/ui/carousel'
 const projects = [
   {
     id: 1,
-    title: "Web-Based Organizing System in Marilao, Bulacan (Capstone Project)",
-    description: "A comprehensive web-based system designed to streamline organizational processes in Marilao, Bulacan. Features include user management, document tracking, and reporting capabilities.",
-    icon: '/pictures/Blessed.jpg',
+    title: "PTT Website",
+    description: "A dynamic corporate and content management web platform developed for PTT Philippines Corporation, featuring station locators, commercial space leasing, lubricant product catalogs, and custom CMS administration.",
+    icon: '/pictures/PTTWebsite/PTTORLogo.png',
     images: [
-      { src: '/pictures/blessedfirstpage.png', title: 'Home Page', description: 'Main dashboard with key features' },
-      { src: '/pictures/blessedsecondpage.png', title: 'User Management', description: 'User interface for managing accounts' },
-      { src: '/pictures/blessedthirdpage.png', title: 'Document Tracking', description: 'System for tracking important documents' },
-      { src: '/pictures/blessedfourthpage.png', title: 'Reports', description: 'Analytics and reporting dashboard' },
-      { src: '/pictures/capstonegroup.png', title: 'Capstone Group & Mr. Mark Adriano', description: '' }
+      { src: '/pictures/PTTWebsite/PTTHomeHero.png', title: 'PTT Home Hero', description: 'Hero banner highlighting PTT gas stations and brand commitment.' },
+      { src: '/pictures/PTTWebsite/PTTAboutUs.png', title: 'PTT About Us', description: 'Overview highlighting 30 years of PTT fueling Filipino communities and leadership.' },
+      { src: '/pictures/PTTWebsite/PTTLocator.png', title: 'PTT Locator', description: 'Interactive map and directory for finding nearby PTT gas stations and available services.' },
+      { src: '/pictures/PTTWebsite/PTTProductLubricantProductPages.png', title: 'PTT Product Lubricant Product Pages', description: 'Product category catalog showcasing motorcycle, gasoline, and diesel engine lubricants.' },
+      { src: '/pictures/PTTWebsite/PTTProductLubricantSelection.png', title: 'PTT Product Lubricant Selection', description: 'Selection grid displaying various engine oil grades, specifications, and applications.' },
+      { src: '/pictures/PTTWebsite/PTTProductDetails.png', title: 'PTT Product Details', description: 'Detailed product specifications, viscosity standards, and purchasing options for lubricants.' },
+      { src: '/pictures/PTTWebsite/PTTCommercialSpaceLeasing.png', title: 'PTT Commercial Space Leasing', description: 'Catalog of available station commercial spaces and leasehold details nationwide.' },
+      { src: '/pictures/PTTWebsite/PTTCommercialSpaceForm.png', title: 'PTT Commercial Space Form', description: 'Interactive inquiry modal allowing potential tenants to apply for station commercial spaces.' },
+      { src: '/pictures/PTTWebsite/PTTCMSLoginPage.png', title: 'PTT CMS Login Page', description: 'Secure authentication portal for administrators and content managers.' },
+      { src: '/pictures/PTTWebsite/PTTCMSDashboard.png', title: 'PTT CMS Dashboard', description: 'Administrative dashboard providing management for content, stations, media, and form submissions.' },
+      { src: '/pictures/PTTWebsite/PTTCMSCustomizable.png', title: 'PTT CMS Customizable', description: 'Content management interface for configuring dynamic page layouts and hero sections.' },
+      { src: '/pictures/PTTWebsite/PTTStationsList.png', title: 'PTT Stations List', description: 'Station directory management panel tracking operational status across all PTT branches.' },
+      { src: '/pictures/PTTWebsite/PTTNewsList.png', title: 'PTT News List', description: 'Management view for publishing, editing, and scheduling news articles and events.' },
     ]
   },
   {
@@ -69,11 +79,15 @@ const projects = [
   },
   {
     id: 3,
-    title: "To be developed",
-    description: "Description for project 3",
-    icon: '/pictures/AITBD.png',
+    title: "Web-Based Organizing System in Marilao, Bulacan (Capstone Project)",
+    description: "A comprehensive web-based system designed to streamline organizational processes in Marilao, Bulacan. Features include user management, document tracking, and reporting capabilities.",
+    icon: '/pictures/Blessed.jpg',
     images: [
-      { src: '/pictures/AITBD.png', title: 'Feature 1', description: 'Description for feature 1' },
+      { src: '/pictures/blessedfirstpage.png', title: 'Home Page', description: 'Main dashboard with key features' },
+      { src: '/pictures/blessedsecondpage.png', title: 'User Management', description: 'User interface for managing accounts' },
+      { src: '/pictures/blessedthirdpage.png', title: 'Document Tracking', description: 'System for tracking important documents' },
+      { src: '/pictures/blessedfourthpage.png', title: 'Reports', description: 'Analytics and reporting dashboard' },
+      { src: '/pictures/capstonegroup.png', title: 'Capstone Group & Mr. Mark Adriano', description: '' }
     ]
   }
 ];
@@ -134,7 +148,7 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
 
 <template>
   <div class="min-h-screen bg-[#1a1a1a]">
-    <header class="fixed top-0 z-50 w-full h-16 bg-white shadow-md">
+    <header class="fixed top-0 z-50 w-full h-16 bg-gray-100 shadow-md">
       <nav class="container flex items-center justify-between h-full px-4 mx-auto md:px-8 lg:px-12">
         <div class="text-lg font-bold text-gray-800 whitespace-nowrap md:text-xl lg:text-2xl">Portfolio</div>
         <ul class="flex items-center space-x-2 md:space-x-4 lg:space-x-6">
@@ -175,7 +189,7 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
           <Fadein direction="left">
             <article class="space-y-4">
               <h1 class="mb-6 text-3xl font-bold text-white underline md:text-4xl lg:text-4xl underline-offset-16">Terence Alaban</h1>
-              <h2 class="text-xl font-semibold text-gray-300 md:text-2xl lg:text-2xl">UI/UX Designer & Full Stack Developer</h2>
+              <h2 class="text-xl font-semibold text-gray-300 md:text-2xl lg:text-2xl">Full Stack Developer</h2>
               <p class="text-base text-gray-400 md:text-lg lg:text-lg">
                 Hi! I am a web developer with a desire to learn and grow in the field of web development.
                 My main goal is to create a website that is not only functional but also aesthetically pleasing. 
@@ -232,7 +246,7 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
                 <Figma class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">Figma</p>
               </section>
               <section class="flex items-center px-3 py-2 space-x-4 duration-300 bg-white rounded-sm shadow-md hover:bg-gray-100">
-                <Canva class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">Canva</p>
+                <Stitch class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">Stitch AI</p>
               </section>
             </div>
           </div>
@@ -244,6 +258,12 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
               <Globe :stroke-width="1" class="size-10 md:size-12 lg:size-14"/> <span class="ml-2 text-lg font-semibold md:text-xl lg:text-xl">Front-End Development</span>
             </Icon>
             <div class="h-[200px] overflow-y-auto pr-2 space-y-4" style="scrollbar-width: none; height: 75%;">
+              <section class="flex items-center px-3 py-2 space-x-4 duration-300 bg-white rounded-sm shadow-md hover:bg-gray-100">
+                <Nextjs class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">Next.js</p>
+              </section>
+              <section class="flex items-center px-3 py-2 space-x-4 duration-300 bg-white rounded-sm shadow-md hover:bg-gray-100">
+                <Payload class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">PayloadCMS</p>
+              </section>
               <section class="flex items-center px-3 py-2 space-x-4 duration-300 bg-white rounded-sm shadow-md hover:bg-gray-100">
                 <Vue class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">Vue.js</p>
               </section>
@@ -279,13 +299,13 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
             </Icon>
             <div class="h-[200px] overflow-y-auto pr-2 space-y-4" style="scrollbar-width: none; height: 75%;">
               <section class="flex items-center px-3 py-2 space-x-4 duration-300 bg-white rounded-sm shadow-md hover:bg-gray-100">
+                <Postgres class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">PostgreSQL</p>
+              </section>
+              <section class="flex items-center px-3 py-2 space-x-4 duration-300 bg-white rounded-sm shadow-md hover:bg-gray-100">
                 <PHP class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">NodeJS</p>
               </section>
               <section class="flex items-center px-3 py-2 space-x-4 duration-300 bg-white rounded-sm shadow-md hover:bg-gray-100">
                 <Laravel class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">Firebase</p>
-              </section>
-              <section class="flex items-center px-3 py-2 space-x-4 duration-300 bg-white rounded-sm shadow-md hover:bg-gray-100">
-                <MongoLogo class="size-8 md:size-9 lg:size-10"/> <p class="text-lg font-semibold md:text-xl lg:text-xl">MongoDB</p>
               </section>
             </div>
           </div>
